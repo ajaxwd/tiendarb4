@@ -2,16 +2,63 @@
 	.col-md-10.no-float.center-block
 		.col-md-6.no-padding.inline-block
 			=image_tag "tienda.png",width:"100"
-			%h1.white-text.ultra-big
+			%h1.white-text.ultra-big.marguerite
 				%strong
 					Ofrece tus productos digitales a tu audiencia
 		.col-md-5.inline-block
 			=image_tag "mono.png"
-%h1 hola mundo
-
-%p
-	=link_to "Iniciar session", new_user_session_path
-
-%p
-	=link_to "Crear cuenta", new_user_registration_path
-
+.grey.white-text.big-padding.marguerite
+	.col-md-10.no-float.center-block
+		.absolute{style:"bottom:-4.5em;width:100%;left:0px;"}
+			.text-center.big
+				.col-md-3.inline-block
+					.white.grey-text.circle
+						%strong 1	
+				.col-md-3.inline-block
+					.white.grey-text.circle
+						%strong 2	
+				.col-md-3.inline-block
+					.white.grey-text.circle
+						%strong 3	
+		%h2.bigger.marguerite.text-center
+			%strong Tienda en 3 pasos
+		%div.text-center
+			.col-md-3.inline-block.text-left
+				=image_tag "upload-icon.png", class:"col-md-8 inline-block"
+				.top-space
+					%strong.medium
+						Suve tus archivos a la tienda
+					%p.white-text.text-justify.small
+						Libros digitales, comic, cursos
+						o lo que se te ocurra si lo puedes
+						en un zip lo puedes vender  
+			.col-md-3.inline-block.text-left
+				=image_tag "youtube-icon.png", class:"col-md-8 inline-block"
+				.top-space
+					%strong.medium
+						Cuentales a tus amigos
+					%p.white-text.text-justify.small
+						Libros digitales, comic, cursos
+						o lo que se te ocurra si lo puedes
+						en un zip lo puedes vender	
+			.col-md-3.inline-block.text-left
+				=image_tag "money.png", class:"col-md-8 inline-block"
+				.top-space
+					%strong.medium
+						Vende y gana dinero
+					%p.white-text.text-justify.small
+						Libros digitales, comic, cursos
+						o lo que se te ocurra si lo puedes
+						en un zip lo puedes vender
+.red.white-text.big-padding.marguerite{style:"margin-top:5em;"}
+	.col-md-8.text-center.no-float.center-block
+		=image_tag "media-icon.png", class:"col-md-8 inline-block"
+		%p.medium.col-md-11.center-block.no-float.top-space
+			%strong
+				Vende tur libros electronicos, tutoriales, videos, canciones
+				libros, comics y todos tus productos.
+.top-space.big-padding
+	.col-md-11.col-xs.12.center-block.no-float
+		=form_tag("/",method: :post) do
+			=email_field_tag "email",nil,class:"col-xs-12 inline-block text-center landing-form", placeholder:"Escribi tu email aqui"	
+		
