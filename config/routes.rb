@@ -1,5 +1,9 @@
 Tienda::Application.routes.draw do
+  resources :products
   devise_for :users
+
+  post "/emails/create", as: :create_email
+
   authenticated :user do
     root 'welcome#index'
   end
