@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require bootstrap-material-design
+ *= require app
  *= require common
  */

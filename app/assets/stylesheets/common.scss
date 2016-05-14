@@ -6,6 +6,11 @@ $other-grey: #F7ECEE;
 $blue: #058CC5;
 $red: #d2527f;
 $light-blue: #3498D8;
+$teal: #009688;
+/*Texto*/
+.bold{
+	font-weight: bold;
+}
 /*COLOR del sitio*/
 .white{
 	background-color: white;
@@ -74,6 +79,7 @@ $light-blue: #3498D8;
 	float: none !important;
 	display: inline-block;
 	vertical-align: middle;
+	margin-right: -4px;
 }
 .absolute{
 	position: absolute;
@@ -81,6 +87,9 @@ $light-blue: #3498D8;
 /*Tamaños*/
 .small{
 	font-size: 12px;
+}
+.normal{
+	font-size: 1.2em;
 }
 .medium{
 	font-size: 1.5em;
