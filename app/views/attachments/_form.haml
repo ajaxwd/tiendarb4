@@ -1,0 +1,5 @@
+= form_for @product, builder: BootstrapFormBuilder do |f|
+  = f.errors
+  = f.hidden_field :prodcuct_id, value: product_id
+  = f.file_field :archivo
+  = f.submit "Enviar"
