@@ -36,6 +36,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
@@ -116,6 +119,10 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    paypal-sdk-rest (1.4.5)
+      multi_json (~> 1.0)
+      uuidtools (~> 2.1)
+      xml-simple
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -198,13 +205,16 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    uuidtools (2.1.5)
     warden (1.2.6)
       rack (>= 1.0)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootstrap-material-design
   bootstrap-sass
   coffee-rails (~> 4.0.0)
@@ -214,6 +224,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   paperclip
+  paypal-sdk-rest
   rails (= 4.2.3)
   rspec-rails
   sass-rails (~> 4.0.0)

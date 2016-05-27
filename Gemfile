@@ -42,6 +42,12 @@ gem 'bootstrap-material-design'
 #paperclip para poder subir imagenes
 gem 'paperclip'
 
+#Paypal SDK
+gem 'paypal-sdk-rest'
+
+#anotaciones de los modelos
+gem 'annotate'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
