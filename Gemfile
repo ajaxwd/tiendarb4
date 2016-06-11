@@ -45,6 +45,9 @@ gem 'paperclip'
 #Paypal SDK
 gem 'paypal-sdk-rest'
 
+#Aasm maquina de estado
+gem 'aasm'
+
 #anotaciones de los modelos
 gem 'annotate'
 
