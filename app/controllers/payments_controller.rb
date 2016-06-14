@@ -19,34 +19,15 @@ end
 
 
   def create
-  	payment = Payment.new({
-  		intent: "sale",
-  		payer:{
-  			payment_method: "paypal"
-  			},
-  		transactions: [
-  			{
-  				item_list: {
-  					items: "DEMO"
-  					},
-  				amount: {
-  					total: @shopping_cart.total / 100,
-  					currency: "USD"
-  				},
-  				description: "Compra de tus productos en nuestra plataforma"
-  			}
-  		],
-  		redirect_urls: {
-  			return_url: "http://localhost:3000/checkout",
-  			cancel_url: "http://localhost:3000/carrito"
-  		}
-  	})
+  	paypal_helper = Stores::Paypal.new(shopping_cart: @shopping_cart,
+  										return_url: checkout_url,
+  										cancel_url: carrito_url)
 
-  	if payment.create
-  		@my_payment = MyPayment.create!(paypal_id: payment.id, 
+  	if paypal_helper.process_payment.create
+  		@my_payment = MyPayment.create!(paypal_id: paypal_helper.payment.id, 
   									ip:request.remote_id, 
   									shopping_cart_id: cookies[:shopping_cart_id])
-  		redirect_to payment.links.find{ |v| v.method == "REDIRECT" }.href
+  		redirect_to paypal_helper.payment.links.find{ |v| v.method == "REDIRECT" }.href
   	else
   		raise payment.error.to_yaml
   	end
