@@ -48,6 +48,9 @@ gem 'paypal-sdk-rest'
 #Aasm maquina de estado
 gem 'aasm'
 
+#Credit Card Validator
+gem 'credit_card_validator'
+
 #anotaciones de los modelos
 gem 'annotate'
 

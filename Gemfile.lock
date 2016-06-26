@@ -43,6 +43,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
+    base_app (1.0.5)
     bcrypt (3.1.11)
     bootstrap-material-design (0.2.2)
       bootstrap-sass (~> 3.0)
@@ -61,6 +62,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    credit_card_validator (1.2.0)
+      base_app (>= 1.0.5)
     devise (4.1.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -220,6 +223,7 @@ DEPENDENCIES
   bootstrap-material-design
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  credit_card_validator
   devise
   factory_girl_rails (~> 4.0)
   haml-rails
