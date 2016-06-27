@@ -14,14 +14,28 @@ def checkout
 	end
 end
 
-
+def process_card
+  paypal_helper = Stores::Paypal.new(@shopping_cart.total,
+                        @shopping_cart.items,
+                        return_url: checkout_url,
+                        cancel_url: carrito_url)
+  if paypal_helper.process_card(params).create
+        @my_payment = MyPayment.create!(paypal_id: paypal_helper.payment.id, 
+                        ip:request.remote_id,
+                        email: params[:email], 
+                        shopping_cart_id: cookies[:shopping_cart_id])
+  @my_payment.pay!
+  redirect_to carrito_path, notice: "El pago se realizo correctamente"
+  else
+    redirect_to carrito_path, notice:paypal_helper.payment.error
+  end
+end
   def create
   	paypal_helper = Stores::Paypal.new(@shopping_cart.total,
   										@shopping_cart.items,
   										return_url: checkout_url,
   										cancel_url: carrito_url)
-
-  	if paypal_helper.process_payment.create
+    if paypal_helper.process_payment.create
   		@my_payment = MyPayment.create!(paypal_id: paypal_helper.payment.id, 
   									ip:request.remote_id, 
   									shopping_cart_id: cookies[:shopping_cart_id])
