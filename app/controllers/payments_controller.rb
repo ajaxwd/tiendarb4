@@ -7,7 +7,7 @@ def checkout
 	else
 		Stores::Paypal.checkout(params[:PayerID],params[:paymentId]) do
 			@my_payment.pay!
-			redirect_to carrito_path,notice:"Se proceso el pago con Paypal"
+			redirect_to ok_path,notice:"Se proceso el pago con Paypal"
 			return	
 		end
 	redirect_to carrito_path,notice:"Hubo un error al procesar el pago"
@@ -41,7 +41,7 @@ end
   									shopping_cart_id: cookies[:shopping_cart_id])
   		redirect_to paypal_helper.payment.links.find{ |v| v.method == "REDIRECT" }.href
   	else
-  		raise payment.error.to_yaml
+  		raise paypal_helper.payment.error.to_yaml
   	end
 
   end

@@ -22,9 +22,14 @@ class ShoppingCart < ActiveRecord::Base
 
 		event :pay do
 			after do
-				# mandar los archivos que el usuario compro
+				self.generate_links() 
 			end
 			transitions from: :created, to: :payed
+		end
+	end
+	def generate_links
+		self.products.each do |product|
+			Link.create(expiration_date: DateTime.now + 7.days, product: product)
 		end
 	end
 
