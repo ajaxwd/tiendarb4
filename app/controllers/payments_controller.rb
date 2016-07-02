@@ -6,7 +6,9 @@ def checkout
 		redirect_to "/carrito"
 	else
 		Stores::Paypal.checkout(params[:PayerID],params[:paymentId]) do
-			@my_payment.pay!
+			
+      @my_payment.update(email: Store::Paypal.get_email(params[:paymentId]))
+      @my_payment.pay!
 			redirect_to ok_path,notice:"Se proceso el pago con Paypal"
 			return	
 		end
