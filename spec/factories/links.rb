@@ -19,6 +19,7 @@ FactoryGirl.define do
     espiration_date "2016-06-29 21:01:36"
     downloads 1
     downloads_limit 1
-    custom_id "MyString"
+    custom_id nil
+    email "ajaxwd@gmail.com"
   end
 end

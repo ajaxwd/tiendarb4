@@ -70,7 +70,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+#abrir correos en el navegador
+gem 'letter_opener'
 gem 'shoulda-matchers'
 gem 'rspec-rails'
 gem 'factory_girl_rails', '~> 4.0' 
