@@ -18,6 +18,7 @@ class Link < ActiveRecord::Base
 	before_create :set_defaults
 	after_create :send_email
 	belongs_to :product
+	has_many :link_attachments
 
 	def update_downloads
 		self.update(downloads: self.downloads+1)
@@ -25,6 +26,12 @@ class Link < ActiveRecord::Base
 
 	def is_invalid?
 		(DateTime.now > self.expiration_date || self.download >= 5)
+	end
+
+	def create_attachment_links
+		product.attachments.each do |attachment|
+			self.update(downloads: self.downloads+1)
+		end
 	end
 
 	private
