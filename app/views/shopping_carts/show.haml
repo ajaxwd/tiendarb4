@@ -10,7 +10,7 @@
 				%tr{id: "#{product.id}"}
 					%td= product.name
 					%td= product.pricing
-					%td Eliminar
+					%td= link_to "Eliminar",i_sh,method: :delete
 	.top-space.large-padding.text-center#payment_form
 		%p.medium
 			%strong
